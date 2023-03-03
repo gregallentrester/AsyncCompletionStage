@@ -1,0 +1,31 @@
+#!/bin/bash -p
+
+# errant spring childs
+HIT="$HOME/.m2/repository/org/springframework"
+HIT1=$HIT"/spring-context/5.2.6.RELEASE/spring-context-5.2.6.RELEASE.jar"
+
+HIT2A=$HIT"/boot/spring-boot-autoconfigure/2.3.0.RELEASE/"
+HIT2B="spring-boot-autoconfigure-2.3.0.RELEASE.jar"
+
+HIT3=$HIT"/boot/spring-boot/2.3.0.RELEASE/spring-boot-2.3.0.RELEASE.jar"
+
+
+rm ./docs
+
+if [ "$1" ];then
+
+  javadoc -d ./docs \
+  -quiet -private \
+  -classpath $HIT1:$HIT2A$HIT2B:$HIT3 \
+  -sourcepath ./src/main/java -subpackages net
+
+else
+
+  javadoc -d ./docs \
+  -quiet -private \
+  -classpath $HIT1:$HIT2A$HIT2B:$HIT3 \
+  -sourcepath ./src/main/java -subpackages net > /dev/null 2>&1
+
+fi
+
+open ./docs/allclasses-index.html

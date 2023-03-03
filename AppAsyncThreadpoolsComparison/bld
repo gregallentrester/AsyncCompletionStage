@@ -1,0 +1,41 @@
+#!/bin/bash -p
+
+clear
+
+# terminal caption
+export PROMPT_COMMAND='echo -ne "\033]0;  $(ipconfig getifaddr en0) - bld  \007"'
+
+# discard previous errata
+rm MAVEN.LOG
+
+# evict (hung?) processes claiming port 8080
+PID=$(lsof -ti tcp:8080)
+
+if [[ $PID ]]; then
+
+  echo;echo "killing " $PID
+  kill -9 $PID  > /dev/null 2>&1
+fi
+
+# build quietly, report error ONLY
+mvn spring-boot:run -B -q -DskipTests=true > MAVEN.LOG
+
+# conditionally report a FAIL
+if [ $? != 0 ];then
+  clear
+  echo;printf "${RED}ßuild Fail${NC}";echo;echo
+
+  cat maven.log
+
+  echo;printf "${RED}ABOVE: MAVEN.LOG${NC}";echo
+
+  return
+fi
+
+# discard current errata
+rm MAVEN.LOG
+
+# report success
+echo
+printf "\n\n${GRN}ßuild Ok\n\n${NC}"
+echo

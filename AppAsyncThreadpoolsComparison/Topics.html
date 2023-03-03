@@ -1,0 +1,44 @@
+<!DOCTYPE html><html><head><style>
+body {
+  font-family:'Optima';
+  background-image: url('linen.png'); background-repeat: repeat; }
+span {
+  color:#32aa32; font-size:2.0em; background-clip:text;
+  background-color:#32aa32; color:transparent;
+  -webkit-background-clip: text; -moz-background-clip: text;
+  text-shadow:rgba(232,232,232,0.7) 0px 3px 3px;
+  padding:5em 1.0em 2.0em 1.0em; }
+hr {
+  border:0; height:1px; width:97%; margin-top:2.0em; margin-bottom:1.3em;
+  background-image: -webkit-linear-gradient(left,#dedede,#32aa32,#dedede);
+  background-image: -moz-linear-gradient(left,#dedede,#32aa32,#dedede);
+  background-image: -ms-linear-gradient(left,#dedede,#32aa32,#dedede);
+  background-image: -o-linear-gradient(left,#dedede,#32aa32,#dedede); }
+img {
+  height:20em; width:18em; border-radius:15em;
+  margin:auto; padding:4.0em 4.4em 1.0em 2.5em; }
+div.crumb {
+  color:#777777; font-size:0.7em; position:fixed;
+  left:50%; bottom:20px; margin: 0 auto;
+  transform:translate(-50%, -50%); }
+ul { list-style-type: none; }
+</style></head><body>
+<div><span>CompletionStage </span></div>
+<hr>
+<ul><li>All 12 Methods (shown below) belonging to the java.util.concurrent.CompletionStage
+<li>Interface that have an 'Async' suffix can be overloaded to accept a custom
+<li>Executor as an additonal formal parameter.
+<li><br>acceptEitherAsync(CompletionStage<? extends T> other, Consumer<? super T> action)
+<li><br>applyToEitherAsync(CompletionStage<? extends T> other, Function<? super T,U> fn)
+<li><br>handleAsync(BiFunction<? super T,Throwable,? extends U> fn)
+<li><br>runAfterBothAsync(CompletionStage<?> other, Runnable action)
+<li>runAfterEitherAsync(CompletionStage<?> other, Runnable action)
+<li><br>thenAcceptAsync(Consumer<? super T> action)
+<li>thenAcceptBothAsync(CompletionStage<? extends U> other, BiConsumer<? super T,? super U> action)
+<li>thenApplyAsync(Function<? super T,? extends U> fn)
+<li>thenCombineAsync(CompletionStage<? extends U> other, BiFunction<? super T,? super U,? extends V> fn)
+<li>thenComposeAsync(Function<? super T,? extends CompletionStage<U>> fn)
+<li>thenRunAsync(Runnable action)
+<li><br>whenCompleteAsync(BiConsumer<? super T,? super Throwable> action)
+<hr>
+<div><img src='tq.jpg'/></div>
